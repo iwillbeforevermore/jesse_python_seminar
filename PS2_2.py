@@ -8,6 +8,7 @@
 from PS2_1 import *
 from visual import *
 from math import sqrt, pi
+from numpy import *
 
 scalefactor = .5
 

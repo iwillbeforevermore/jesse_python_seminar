@@ -16,7 +16,7 @@ E0 = 8.854187817e-12
 
 k = 1.0/(4*pi*E0)
 
-def pointChargeField(charge, location):
+def pointChargeField(charge, location): #charge is (location),(charge)
     #assign local variable names that make more sense
     locationX = location[0]
     locationY = location[1]
