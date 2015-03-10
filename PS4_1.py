@@ -16,8 +16,8 @@ k = 1.0/(4*pi*E0)
 #flux is component of E perp to surface of
 #   blanket times dA
 
-q = 10E-6
-sigma = 10E-3
+q = 1E-6
+sigma = 1E-3
 charge = (0,0,0,q)
 flux = 0
 lengthLoc = -1
@@ -26,6 +26,7 @@ dL = .01
 dA = dL*dL
 dQ = sigma*dA
 forceList = [0,0,0]
+Qtot=1
 
 start = time.time()
 
