@@ -22,8 +22,9 @@ def Phi(P):
     phi = 0.0
     for i in xrange(int(circ/dt)):
         dq = lamda(i*dt)*dt
-        x = cos(i+t)
-        y = sin(i+t)+1
+        x = cos(i*dt+t)
+        y = sin(i*dt+t)+1
+        #print i*dt+t
         #print x,y
         pos = (np.array([x,y,0.0]))
         r = np.linalg.norm(P-pos)
@@ -37,5 +38,40 @@ for j in path:
     V.append(Phi(np.array([0.01, j / 20.0, j / 30.0])))
 
 plot(path, V)
-print start - time.time()
+print "it took this long:" , (time.time()-start)
 show()
+
+
+
+##now, we do this along the path of z axis from 0..2
+##this is because i accidentally used x and y in the
+##first part...whoops.
+
+def PhiForY(y):
+    totalLamda = 0
+    for i in range(50):
+        totalLamda += lamda(i/pi)
+    phi =  k*totalLamda*1*pi/sqrt(1+y**2)
+    #print phi
+    return phi
+
+path2 = range(50)
+Vy = []
+err = []
+for j in path2:
+    num = Phi(np.array([0.0, j / 2.0, 1.0]))
+    theo = PhiForY(j/2.0)
+    Vy.append(num)
+    err.append((num-theo)/float(theo))
+    print err
+plot(path, Vy)
+plot(path,err)
+show()
+
+##i know my PhiForY function is wrong somewhere...
+##but i've been sick all weekend and have an awful headache...
+
+
+
+
+
