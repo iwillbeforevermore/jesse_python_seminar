@@ -21,15 +21,15 @@ def Phi(P):
     dt = .1
     phi = 0.0
     for i in xrange(int(circ/dt)):
-        dq = lamda(i*dt)*dt
-        x = cos(i*dt+t)
-        y = sin(i*dt+t)+1
-        #print i*dt+t
-        #print x,y
+        dq = lamda(i*dt)*dt # Great! You might even start with theta = i * dt
+        x = cos(i*dt+t) # This only works because R = 1
+        y = sin(i*dt+t)+1 # Generally, use x = R * cos(theta)
+        #print i*dt+t # I'll trust that this shift by t is correct.
+        #print x,y # Offhand, it looks reasonable...
         pos = (np.array([x,y,0.0]))
         r = np.linalg.norm(P-pos)
         phi += k*dq/r
-    return phi
+    return phi # Looks right to me.
 
 start = time.time()
 path = range(50)
@@ -46,6 +46,8 @@ show()
 ##now, we do this along the path of z axis from 0..2
 ##this is because i accidentally used x and y in the
 ##first part...whoops.
+
+# Couldn't you just set pos = np.array((x, 0.0, y)) in Phi(P)?
 
 def PhiForY(y):
     totalLamda = 0
@@ -71,7 +73,8 @@ show()
 ##i know my PhiForY function is wrong somewhere...
 ##but i've been sick all weekend and have an awful headache...
 
-
+# Correcting PhiForY isn't easy.
+# I might've recommended office hours at this point...
 
 
 
