@@ -18,9 +18,8 @@ class sph_cyl_cap(capacitor):
         find E of cylinder and sphere using Gauss
         integrate E of cylinder with ds from cylRadius to sep-sphRadius
         integrate E of sphere with ds from sphRadius to sep-sphRadius
-        
-
-
+# Your plan is correct, but the execution seems a bit... sparse.
+# Also, where is the super_cap class definition?
 
         self.area = float(area)                             #   named dict, just a dict
         self.sep = float(sep)
